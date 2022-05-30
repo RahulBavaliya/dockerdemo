@@ -1,0 +1,28 @@
+﻿@model Movie
+
+@{
+    ViewData["Title"] = "Update a Movie";
+}
+
+<h1 class="bg-info text-white">Update a Movie</h1>
+<a asp-action="Index" class="btn btn-secondary">View all Movies</a>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Id"></label>
+        <input type="text" asp-for="Id" readonly class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input type="text" asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Actors"></label>
+        <input type="text" asp-for="Actors" class="form-control" />
+        <span asp-validation-for="Actors" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

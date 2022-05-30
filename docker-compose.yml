@@ -1,0 +1,22 @@
+version: '3.4'
+services:
+  
+  super-app-crudeangular:
+   image: ${DOCKER_REGISTRY-}crudangular:v1
+   build: ./crudangular
+   ports:
+    - "4200:80"
+
+  super-app-dotnet:
+    build: ./apidemo/dockerdemocrud
+    ports:
+    - "8080:80"
+
+  super-app-sqlserver:
+    build: ./sqlserver
+    environment:
+      SA_PASSWORD: Pass@123
+      ACCEPT_EULA: Y
+    ports: 
+    - "1434:1433"
+
