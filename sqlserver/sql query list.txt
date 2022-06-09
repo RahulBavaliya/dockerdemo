@@ -1,0 +1,43 @@
+create table users(
+id INT,
+username nvarchar(50),
+userpassword nvarchar(50)
+)
+create table movie(
+mid INT,
+mname nvarchar(50),
+mdescription nvarchar(200),
+mactors nvarchar(50)
+)
+--------------------
+CREATE PROCEDURE createmovie
+@mid INT,
+@mname nvarchar(50),
+@mdescription nvarchar(200),
+@mactors nvarchar(50)
+AS
+BEGIN
+	
+	insert into dcruddemo..movie (mid,mname,mdescription,mactors) values (@mid,@mname,@mdescription,@mactors)
+
+END
+GO
+---------------------
+CREATE PROCEDURE createuser 
+@id INT,
+@username nvarchar(50),
+@userpassword nvarchar(50)
+AS
+BEGIN
+	
+	insert into dcruddemo..users (id,username,userpassword) values(@id,@username,@userpassword) 
+
+END
+GO
+------------------
+alter PROCEDURE getMovie
+AS
+BEGIN
+	select * from dcruddemo..movie
+END
+GO
